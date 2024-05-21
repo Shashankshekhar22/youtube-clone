@@ -9,6 +9,7 @@ import { CiSaveDown1 } from "react-icons/ci";
 import { TfiDownload } from "react-icons/tfi";
 import { IconContext } from "react-icons";
 import CommentsContainer from "./CommentsContainer";
+import LiveChat from "./LiveChat";
 
 const Watchpage = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Watchpage = () => {
 
   return (
     <div className="px-5">
-      <div id="Video-container">
+      <div id="Video-container" className="flex">
         <iframe
           width="1200"
           height="600"
@@ -41,6 +42,9 @@ const Watchpage = () => {
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
+        <div className="w-[41rem]">
+          <LiveChat />
+        </div>
       </div>
       <div id="video-details">
         <h1 className="font-bold my-4 text-xl"> {title}</h1>
@@ -49,7 +53,7 @@ const Watchpage = () => {
           <button className="mx-3 px-3 bg-black text-white  rounded-full p-2 text-sm">
             Subscribe
           </button>
-          <div className="ml-auto mr-0 justify-around">
+          <div className="ml-96 mr-0 justify-around">
             <button className="bg-gray-300 rounded-full mx-4 px-3">
               <IconContext.Provider
                 value={{ className: "btn-icon-watch-list" }}
@@ -87,7 +91,7 @@ const Watchpage = () => {
       </div>
       <div
         id="description-section"
-        className="my-5 bg-gray-300 rounded-xl px-5 h-40 overflow-hidden whitespace-nowrap"
+        className="my-5 bg-gray-300 rounded-xl px-5 h-40 overflow-hidden"
       >
         <h2 className="font-bold py-4">
           {numberformat.format(viewCount)} views
@@ -98,6 +102,7 @@ const Watchpage = () => {
         <h1 className="text-2xl font-bold">
           {numberformat.format(commentCount)} Comments
         </h1>
+
         <CommentsContainer />
       </div>
     </div>
